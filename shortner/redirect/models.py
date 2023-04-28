@@ -3,7 +3,7 @@ from django.conf import settings
 
 # Create your models here.
 class FullLink(models.Model):
-    complete_link = models.CharField("لینک کامل", max_length=200)
+    complete_link = models.CharField("لینک کامل", max_length=200, unique=True)
 
     def __str__(self):
         return self.complete_link
