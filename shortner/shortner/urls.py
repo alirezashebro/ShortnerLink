@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("hellodj/", include("hellodjango.urls"))
+    path("hellodj/", include("hellodjango.urls")),
+    path("mylinks/", include("redirect.urls")),
 ]
