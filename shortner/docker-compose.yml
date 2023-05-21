@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mariadb
+      - MYSQL_DATABASE=mariadb
+      - MYSQL_USER=mariadb
+      - MYSQL_PASSWORD=mariadb
+    volumes:
+      - ../mariadb_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  web:
+    build: .
+    working_dir: /code
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    command: "bash run.sh"
+    depends_on:
+      - db
+
+volumes:
+  mariadb_data:
+
